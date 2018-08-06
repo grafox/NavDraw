@@ -9,7 +9,7 @@ import { Progress } from "ui/progress";
     templateUrl: "./settings.component.html"
 })
 export class SettingsComponent implements OnInit {
-    public progressValue: number;
+    public progressValue:number;
 
     constructor() {
         // Use the component constructor to inject providers.
