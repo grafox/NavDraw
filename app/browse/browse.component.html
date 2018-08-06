@@ -1,0 +1,32 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Browse"></Label>
+</ActionBar>
+
+<StackLayout class="m-15" sdkExampleTitle sdkToggleNavButton>
+    <!-- >> button-tap-event-html -->
+    <Button class="btn btn-primary btn-active" id="button" text="Tap me!" (tap)="onTap($event)"></Button>
+    <!-- << button-tap-event-html -->
+    <DatePicker (loaded)="onPickerLoaded($event)" (dateChange)="onDateChanged($event)" (dayChange)="onDayChanged($event)" (monthChange)="onMonthChanged($event)"
+        (yearChange)="onYearChanged($event)" verticalAlignment="center"></DatePicker>
+
+    <TextField class="h3 p-15 m-15 text-left input input-border">
+        <FormattedString>
+            <Span text="Formatted " fontSize="16">Formatted</Span>
+            <Span text="String " fontSize="18">String</Span>
+            <Span text="TextField" fontSize="22">TextField</Span>
+        </FormattedString>
+    </TextField>
+
+</StackLayout>
