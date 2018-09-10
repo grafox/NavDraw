@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import * as app from "application";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { Progress } from "ui/progress";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "Settings",
@@ -9,13 +10,30 @@ import { Progress } from "ui/progress";
     templateUrl: "./settings.component.html"
 })
 export class SettingsComponent implements OnInit {
-    public progressValue:number;
+    public progressValue: number;
+    public people: Array<any>;
 
-    constructor() {
-        // Use the component constructor to inject providers.
+
+    constructor(private router: Router) {
+        this.people = [];
+
     }
 
-     ngOnInit() {
+    ngOnInit() {
+        this.people.push({
+            "firstName": "Gassan",
+            "lastName": "Jabbar"
+        })
+        this.people.push({
+            "firstName": "Dana",
+            "lastName": "Menati"
+        })
+        this.people.push({
+            "firstName": "Aboudi",
+            "lastName": "Menati"
+        })
+        console.log(this.people);
+
         this.progressValue = 0;
 
         setInterval(() => {
@@ -33,4 +51,9 @@ export class SettingsComponent implements OnInit {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
     }
+    goToDetails(){
+        this.router.navigate(["home"]);
+
+    }
+
 }

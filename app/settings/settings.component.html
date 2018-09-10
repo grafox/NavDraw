@@ -1,4 +1,4 @@
-<ActionBar class="action-bar">
+<ActionBar class="action-bar" title="My Project">
     <!-- 
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
@@ -14,6 +14,13 @@
     <Label class="action-bar-title" text="Settings"></Label>
 </ActionBar>
 
-<StackLayout verticalAlign="center" height="100">
+<StackLayout verticalAlign="center">
+    <ListView [items]="people" class="list-group">
+        <ng-template let-person="item" >
+          <StackLayout class="list-group-item" (tap)="goToDetails()">
+            <Label text="{{person.firstName}} {{person.lastName}}"></Label>
+          </StackLayout>
+        </ng-template>
+    </ListView>
     <Progress [value]="progressValue" (valueChanged)="onValueChanged($event)" maxValue="100" class="m-20"></Progress>
 </StackLayout>
